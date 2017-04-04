@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English Premier League 2011/12 Statistics</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
+
+    <link rel="stylesheet" href="./static/css/data_style.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+</head>
+<body>
+    <h1 align="center">English Premier League 2011/12 Statistics</h1>
+    <h3 align="center">Visualize the performance of Premier League players in the 2011/12 season based on different attributes</h3>
+
+        <div style="margin-left: 50px;">
+            <text style="margin-right: 12px; font-weight: bold;">Select the type of sampling:</text>
+            <input type="radio" name="sampling" value="adaptive_sampling" onchange="performAdaptiveSamplingActions()" selected />
+            <label for="adaptive_sampling" style="font-family: Lato, sans-serif;">Adaptive Sampling</label>
+
+            <input type="radio" name="sampling" value="random_sampling" onchange="performRandomSamplingActions()" style="margin-left: 50px;" />
+            <label for="random_sampling" style="font-family: Lato, sans-serif;">Random Sampling</label>
+
+        </div>
+
+    <br />
+
+    <div class="tab">
+        <button class="tabStyle" onclick="checkTab(event, 'scatter')">2D PCA Scatterplot</button>
+        <button class="tabStyle" onclick="checkTab(event, 'mds')">2D MDS Scatterplot</button>
+        <button class="tabStyle" onclick="checkTab(event, 'scatter3d')">Scatterplot Matrix</button>
+        <button class="tabStyle" onclick="checkTab(event, 'scree')">Scree Plot</button>
+        <button class="tabStyle" onclick="checkTab(event, 'kmeans')" id="kmeanstab">KMeans Plot</button>
+    </div>
+
+    <div id="scatter" class="tabcontent">
+        <div id="makeScatter">
+            <h3 align="center">2D Scatter Plot (PCA-1 vs PCA-2)</h3>
+
+        </div>
+    </div>
+
+    <div id="scree" class="tabcontent">
+        <text style="margin-left: 120px; font-weight: bold; font-size: 1.1em;">Number of PCA Components vs Variance Ratio (%)</text>
+        <text style="margin-left: 350px; font-weight: bold; font-size: 1.1em;">Feature vs Sum of Squared Loadings</text>
+        <div id="makeScree">
+
+
+        </div>
+    </div>
+
+    <div id="mds" class="tabcontent">
+        <text style="margin-left: 250px; font-weight: bold; font-size: 1.1em;">MDS Plot: Euclidean Distance</text>
+        <text style="margin-left: 380px; font-weight: bold; font-size: 1.1em;">MDS Plot: Correlation Distance</text>
+
+        <br/>
+        <div id="makeMds">
+
+        </div>
+    </div>
+
+    <div id="scatter3d" class="tabcontent">
+        <div id="makeScatter3d" align="center">
+            <h4 style="font-size: 1.1em; font-weight: bold">Scatterplot Matrix of three highest PCA loaded attributes</h4>
+
+        </div>
+    </div>
+
+    <div id="kmeans" class="tabcontent">
+        <div id="makeKmeans" align="center">
+            <text style="font-size: 1.1em; font-weight: bold;">K-Means Plot (Value of k vs Average Sum of Squares)</text>
+
+        </div>
+    </div>
+
+<script src='./static/js/plot_graphs.js' type='text/javascript'></script>
+</body>
+</html>
